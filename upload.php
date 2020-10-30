@@ -16,14 +16,18 @@
 </html>
  
 <?php
-  $file = "foto/".$_FILES['path']['name'];
-  move_uploaded_file($_FILES['path']['tmp_name'], $file);
+require 'setings.php';
+  $file = UPLOAD_DIR."/".$_FILES['path']['name'];
+  
+  if (!in_array($_FILES['files']['type'], ALLOWED_TYPES)) {
+  if ($_FILES['files']['size'] < UPLOAD_MAX_SIZE) {  
   if(isset($_FILES['path']['name']))
   {
+    move_uploaded_file($_FILES['path']['tmp_name'], $file);
     $filer = $_FILES['path']['name'];
     $filer .= '.txt';
-  $f = fopen("coments/$filer", 'w');
+    $uploaddir= COMMENT_DIR;
+  $f = fopen("$uploaddir/$filer", 'w');
   //header('Refresh: /');
-}
- 
+}}}
 ?>
