@@ -18,7 +18,7 @@ if (!empty($_SESSION['auth']) && $exit != 1 ) {
     echo '<a href = "?exit=1">exit</a>';
     echo '<h2>Ваша галерея:</h2>';
     echo '<a href= "upload.php">Добавить фото</a>';
-     include('galery.php');
+    include('galery.php');
     return;
 }
 else {
